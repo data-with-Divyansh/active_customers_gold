@@ -1,0 +1,1 @@
+Simple pyspark project for tiering customers based on their total spends.

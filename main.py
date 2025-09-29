@@ -5,10 +5,10 @@ from pyspark.sql import SparkSession
 from pyspark.sql.functions import *
 from pyspark.sql.window import *
 
-python_path = sys.executable
-os.environ['PYSPARK_PYTHON'] = python_path
-os.environ['HADOOP_HOME'] = 'hadoop'
-os.environ['JAVA_HOME'] = r'C:\Users\<PC NAME>\.jdks\corretto-1.8.0_462'
+# python_path = sys.executable
+# os.environ['PYSPARK_PYTHON'] = python_path
+# os.environ['HADOOP_HOME'] = 'hadoop'
+# os.environ['JAVA_HOME'] = r'C:\Users\<PC NAME>\.jdks\corretto-1.8.0_462'
 
 
 conf = SparkConf().setAppName("pyspark").setMaster("local[*]").set("spark.driver.host","localhost").set("spark.default.parallelism", "1")
@@ -41,6 +41,6 @@ totaldf.show()
 join2 = joindf.join(totaldf,"customer_id","left").withColumn("tier",expr("case when total_spend > 500 then 'Gold' else 'Silver' end"))
 join2.show()
 
-join2.write.format("csv").mode("append").partitionBy("signup_date").save("tier_data")
+join2.write.format("csv").mode("append").partitionBy("signup_date").save("output/tier_data")
 
 
