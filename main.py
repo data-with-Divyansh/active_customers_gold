@@ -5,10 +5,9 @@ from pyspark.sql import SparkSession
 from pyspark.sql.functions import *
 from pyspark.sql.window import *
 
-# python_path = sys.executable
-# os.environ['PYSPARK_PYTHON'] = python_path
-# os.environ['HADOOP_HOME'] = 'hadoop'
-# os.environ['JAVA_HOME'] = r'C:\Users\<PC NAME>\.jdks\corretto-1.8.0_462'
+# os.environ['PYSPARK_PYTHON'] = r"C:\Users\PCNAME\AppData\Local\Programs\Python\Python310\python.exe"
+# os.environ['HADOOP_HOME'] = r'C:\hadoop'
+# os.environ['JAVA_HOME'] = r'C:\Program Files\Java\jdk1.8.0_202'
 
 
 conf = SparkConf().setAppName("pyspark").setMaster("local[*]").set("spark.driver.host","localhost").set("spark.default.parallelism", "1")
